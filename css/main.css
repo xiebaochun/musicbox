@@ -45,23 +45,52 @@ html,body{
 	text-align: center;
 }
 .button:hover{
-	background: #422;
+	background: #987;
 	cursor: default;
 }
+#close:hover{
+    background: #c31;
+}
+/*main view*/
+.main_view{
+	position: absolute;
+	top:30px;
+	bottom: 75px;
+	width: 100%;
+}
+/*vertical middle*/
+.vertical-middle{
+	left: 188px;
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
 /*left nav*/
 .nav_left{
-	position: fixed;
 	left: 0;
-	top: 30px;
-	bottom: 0;
 	width: 188px;
 	border-right: 1px solid #4BAACE;
-	background: #3CB3E0;
+	background: #EAEAEA;
 	z-index: 100;
 }
 .app_name{
-	font-size: 20px;
-	margin-top: -10px;
+	font-size: 16px;
+	margin-top: -26px;
+}
+.recommend-list li{
+	line-height:30px;
+	color:#232323;
+	padding-left:30px;
+}
+.recommend-list li:hover{
+	font-weight: bolder;
+	cursor: pointer;
+	color:#3CB3E0;
+	padding-left:30px;
+	background-color: #ffffff;
 }
 /*loader*/
 #loader{
@@ -70,7 +99,7 @@ html,body{
 	top:30px;
 	bottom:0px;
 	background: #222;
-	z-index: 5;
+	z-index: 200;
 	
 }
 .progress{
@@ -147,4 +176,167 @@ html,body{
     100%{width: 0px; right: 0px}
 }
 
-/* -------------- loader
+/* -------------- footer*/
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 75px;
+	background:#383838;
+}
+.footer .inner {
+	position: relative;
+	padding: 0 295px 0 315px;
+	height: 70px;
+	text-align: left;
+}
+.music-control-bar{
+	float: left;
+	height: 41px;
+	width: 170px;
+	position: absolute;
+	left: 37px;
+	top: 18px;
+	
+}
+.music-control-bar li{
+	float: left;
+	overflow: hidden;
+}
+.music-pre{
+	margin-top: 6px;
+	width: 29px;
+	height: 29px;
+	background: url(../images/player_9996b.png) no-repeat -30px 0;
+	text-indent: -9999px;
+}
+.music-play{
+	margin: 0 22px;
+	width: 41px;
+	height: 41px;
+    background: url(../images/player_9996b.png) no-repeat -30px -150px;
+    text-indent: -9999px;
+}
+.play {
+	background-position: -30px -150px;
+}
+.pause{
+	background-position: -30px -100px;
+}
+.music-next{
+	margin-top: 6px;
+	width: 29px;
+	height: 29px;
+	background: url(../images/player_9996b.png) no-repeat -30px -150px;
+	background-position: -30px -50px;
+}
+#music-colume-control{
+	position: absolute;
+	bottom: 10px;
+	left: 200px;
+	width: 42px;
+	height: 42px;
+}
+.toggle-mute{
+	position: absolute;
+	left: 11px;
+	bottom: 10px;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background: url(../images/player_9996b.png) no-repeat -80px -25px;
+}
+.toMute {
+	background-position: -80px 0;
+}
+.play-mode{
+	position: absolute;
+	top: 31px;
+	left: 260px;
+}
+.play-mode-btn{
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	background: url(../images/player_9996b.png) no-repeat -5px -76px;
+	overflow: hidden;
+}
+.playing-bar{
+	position: relative;
+	padding: 30px 95px 0 0;
+	height: 37px;
+}
+.playing-song-info{
+	height: 17px;
+	line-height: 17px;
+	text-align: center;
+	color: #CCC;
+}
+
+#time-progress-bar{
+	position: relative;
+	height: 20px;
+	width: 100%;
+	background: url(../images/bg_timePregress_8a762.png) repeat-x 0 center;
+}
+#time-progress-bar #downloadingProgressBar {
+	position: absolute;
+	left: 0;
+	top: 8px;
+	width: 100%;
+	height: 4px;
+	background: #808080;
+}
+#time-progress-bar .ui-slider-handle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: -10px;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: url(../images/player_9996b.png) no-repeat -80px -200px;
+}
+#time-progress-bar .cur {
+	position: absolute;
+	left: 0;
+	top: 8px;
+	height: 4px;
+	width: 0;
+	background: #3CB3E0;
+}
+#timeData{
+	position: absolute;
+	right: 0;
+	top: 30px;
+	width: 85px;
+	line-height: 20px;
+	text-align: right;
+	color: #FFF;
+	
+}
+#extraBar{
+	position: absolute;
+	top: 27px;
+	right: 82px;
+}
+#btnToggleLike{
+	background: url(../images/player_9996b.png) no-repeat -80px -100px;
+}
+#btnToggleFav{
+	margin: 0 45px;
+	background: url(../images/player_9996b.png) no-repeat -80px -50px;	
+}
+#btnShare{
+	background: url(../images/player_9996b.png) no-repeat -80px -150px;
+}
+
+#extraBar a{
+	float: left;
+	width: 25px;
+	height: 25px;
+	text-indent: -9999px;
+	overflow: hidden;
+}

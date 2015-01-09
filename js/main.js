@@ -58,6 +58,24 @@ $(function() {
   setTimeout(function() {
     $("#loader").fadeOut();
   }, 100);
+  ////////////////////////////////////////////////////////////nav left event
+  $("#baidu-music-box").click(function(){
+    // $('.main_view').load('http://www.baidu.com'); // SERIOUSLY!
+     window.location.href="http://play.baidu.com/";
+    $.ajax({
+        url: 'http://www.baidu.com/',
+        type: 'GET',
+        success: function(res) {
+            // var headline = $(res.responseText).find('a.tsh').text();
+            // alert(headline);
+            console.log(res);
+        }
+    });
+     
+    // Works with $.get too!
+  });
+    
+  
    
 
 });

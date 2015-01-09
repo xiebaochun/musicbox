@@ -3,6 +3,7 @@
   <head>
   	<meta charset="utf-8">
   	<title>翻译</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
   	<link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script type="text/javascript" src="js/xdomain.js"></script>
@@ -32,14 +33,67 @@
         </div>
       </div>
       <div class="main_view">
-        <div class="nav_left">
+        <div class="vertical-middle nav_left" id="nav_left">
            <div class="app_name color-white text-align-center">音乐盒</div>
+           <div class="recommend">
+             <p class="text-align-left" style="font-size:14px; padding-left:20px;line-height:40px">推荐</p>
+             <ul class="recommend-list">
+               <li class="recommend-music-class text-align-left">YY经典</li>
+               <li class="recommend-music-class text-align-left">伤感</li>
+               <li class="recommend-music-class text-align-left">校园</li>
+               <li class="recommend-music-class text-align-left">日本民谣</li>
+               <li class="recommend-music-class text-align-left">流行音乐</li>
+             </ul>
+           </div>
+           <div class="other-music-box">
+             <p class="text-align-left" style="font-size:14px; padding-left:20px;line-height:40px">其他盒子</p>
+             <ul class="recommend-list">
+               <li class="recommend-music-class text-align-left" id="baidu-music-box">百度音乐盒</li>
+               <li class="recommend-music-class text-align-left">虾米音乐盒</li>
+             </ul>
+           </div>
+        </div>
+        <div class="vertical-middle music-content" id="music-content">
+          <embed src="http://www.xiami.com/widget/45813852_H_S_album/wallPlayer.swf" type="application/x-shockwave-flash" width="451" height="179" wmode="transparent"></embed>
         </div>
 
       </div>
-      
+      <script type="text/javascript" src="http://www.xiami.com/widget/player-wall?uid=45813852&direction=H&size=S&type=album&mode=js"></script>
 
       <div class="footer">
+        <div class="inner">
+          <div class="music-control-bar">
+            <ul>
+              <li class="music-pre"></li>
+              <li class="music-play play"></li>
+              <li class="music-next"></li>
+            </ul>
+          </div>
+          <div id="music-colume-control">
+            <div class="toggle-mute toMute" id="toggle-mute-btn"></div>
+          </div>
+          <div class="play-mode">
+            <div class="play-mode-btn" id="play-mode-btn"></div>
+          </div>
+          <div class="playing-bar">
+            <div id="playing-song-info"></div>
+            <div id="time-progress-bar">
+              <div id="downloadingProgressBar" style="width: 100%;"></div>
+              <div class="cur" style="width: 195px;"></div>
+              <a class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" href="#" style="left: 0%;"></a>
+            </div>
+            <div id="timeData">
+              <span class="cur">00:43</span><span id="slash" style="">/</span><span class="total">05:53</span>
+            </div>
+          </div>
+          <div id="extraBar">
+            <a href="#" id="btnToggleLike" class="status_Tolike">Like</a>
+            <a href="#" id="btnToggleFav" class="status_Tofav" onclick="ga('send','event','播放栏','按钮','喜欢');">Fav</a>
+            <a href="#" id="btnShare" class="globalShare">Share</a>
+          </div>  
+          
+        </div>
+         
         
       </div>
       
