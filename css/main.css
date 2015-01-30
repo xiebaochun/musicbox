@@ -176,6 +176,28 @@ html,body{
     100%{width: 0px; right: 0px}
 }
 
+/*............music content*/
+.music-item{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	padding-left: 10px;
+	line-height: 30px;
+	background-color:#fff;
+	border-bottom:1px solid #e0e0e0;
+
+}
+.music-item:hover{
+	background-color:#f1f1f1;
+}
+#duration{
+	display: inline-block;
+	float:right;
+}
+#played{
+	display: inline-block;
+	float:right;
+}
 /* -------------- footer*/
 .footer{
 	position: absolute;
@@ -264,12 +286,12 @@ html,body{
 }
 .playing-bar{
 	position: relative;
-	padding: 30px 95px 0 0;
+	padding: 0px 95px 0 0;
 	height: 37px;
 }
-.playing-song-info{
-	height: 17px;
-	line-height: 17px;
+#playing-song-info{
+	height: 30px;
+	line-height: 30px;
 	text-align: center;
 	color: #CCC;
 }

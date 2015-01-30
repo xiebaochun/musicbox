@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script type="text/javascript" src="js/xdomain.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
-
+    <script type="text/javascript" src="js/audio.js"></script>
   	<script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/xml2json.js"></script>
   </head>
@@ -54,11 +54,13 @@
            </div>
         </div>
         <div class="vertical-middle music-content" id="music-content">
-          <embed src="http://www.xiami.com/widget/45813852_H_S_album/wallPlayer.swf" type="application/x-shockwave-flash" width="451" height="179" wmode="transparent"></embed>
+          <div class="music-item">
+            <div id="duration"></div>
+          </div>
         </div>
 
       </div>
-      <script type="text/javascript" src="http://www.xiami.com/widget/player-wall?uid=45813852&direction=H&size=S&type=album&mode=js"></script>
+      
 
       <div class="footer">
         <div class="inner">
@@ -79,11 +81,11 @@
             <div id="playing-song-info"></div>
             <div id="time-progress-bar">
               <div id="downloadingProgressBar" style="width: 100%;"></div>
-              <div class="cur" style="width: 195px;"></div>
-              <a class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" href="#" style="left: 0%;"></a>
+              <div class="cur" id="cur-bar"></div>
+              <a class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" id="slider-handle" href="#" ></a>
             </div>
             <div id="timeData">
-              <span class="cur">00:43</span><span id="slash" style="">/</span><span class="total">05:53</span>
+              <span class="cur" id="cur">00:43</span><span id="slash" style="">/</span><span class="total" id="total">05:53</span>
             </div>
           </div>
           <div id="extraBar">
