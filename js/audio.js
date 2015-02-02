@@ -136,7 +136,7 @@ p.play = function(filePath) {
 	console.log("play");
 	this._isPlay = true;
 };
-p.isPlay = function() {
+p.isPlaying = function() {
 	return this._isPlay;
 };
 p.pause = function() {

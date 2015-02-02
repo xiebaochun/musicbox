@@ -58,12 +58,17 @@ $(function() {
 
   }
   ////////////////////////////////////////////////////////////your code
-  
+
   var audioPlayer = new MyAudio();
-  
+
+  var playback = new Playback(audioPlayer);
+
   setTimeout(function() {
     $("#loader").fadeOut();
   }, 100);
+
+  loadMusics();
+
   ////////////////////////////////////////////////////////////nav left event
   $("#baidu-music-box").click(function() {
     // $('.main_view').load('http://www.baidu.com'); // SERIOUSLY!
@@ -82,6 +87,18 @@ $(function() {
     // Works with $.get too!
   });
 
+  //$(window).resize(playback.updateCurPosition(audioPlayer));
+
+  /*
+  windows resize handler
+   */
+  win.on("resize", function(w, h) {
+    playback.updateCurPosition();
+  });
+
+  /*
+  load music 
+   */
   function loadMusics(cate) {
     async.series({
         music: function(callback) {
@@ -97,33 +114,43 @@ $(function() {
 
   }
 
+  /*
+  list the music files
+   */
   function list_musics(list) {
+
     $("#music-content").empty();
 
-    $.each(list,function(index,item){
-      var html = '<div class="music-item">' +item.name+ '<div id="played"></div><div id="duration"></div></div>'
+    $.each(list, function(index, item) {
+
+      var html = '<div class="music-item">' + item.name + '<div id="played"></div><div id="duration"></div></div>'
 
       var element = $(html);
 
-      element.click(function(){
-        console.log("click");
+      element.click(function() {
+
+        //console.log("click");
+
         $("#playing-song-info").html(item.name);
-        audioPlayer.play("http://xiebaochun.github.io/music-resource/"+item.file_name);
-        audioPlayer.addEvent("timeupdate",function(){
-          $("#total").html(audioPlayer.getDuration());
-          $("#cur").html(audioPlayer.getCurrentTime());
-          var cur_width = parseInt(audioPlayer.getPercentOfCurentTime()*$("#downloadingProgressBar").width());
-          
-          $("#cur-bar").css("width", cur_width+"px");
-          $("#slider-handle").css("left", cur_width+"px");
-          
+
+        audioPlayer.play("http://xiebaochun.github.io/music-resource/" + item.file_name);
+
+        //add time upate event handler
+        audioPlayer.addEvent("timeupdate", function() {
+          playback.updateTimeData();
+          playback.updateCurPosition();
         });
+
       });
+
       $("#music-content").append(element);
+
     });
   }
 
-  //get information by http protocol
+  /*
+  get information by http protocol
+   */
   function getInfoByHttp(url, callback) {
     // http.get(url, function(res) {
     //   var body = '';
