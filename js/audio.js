@@ -1,8 +1,8 @@
 /*
 this is the audio player 
  */
-function MyAudio() {
-		this.init();
+function MyAudio(basePath) {
+		this.init(basePath);
 	}
 	/*
 	p is the audio prototype
@@ -11,11 +11,15 @@ var p = MyAudio.prototype;
 
 p.audioPlayer = null;
 
+p._musicList = [];
+
 p.audioFiles = null;
 
 p.audioFilesCount = 0;
 
 p._volume = 1;
+
+p._basePath = "";
 
 p.bgPic = "";
 
@@ -39,8 +43,9 @@ p._currentBgIndex = 0;
 
 p._bgOpacity = 0.5;
 
-p.init = function() {
+p.init = function(basePath) {
 	this.audioPlayer = new Audio();
+	this.setBasePath(basePath);
 };
 p.initAudioPlayer = function(filePath) {
 	// console.log("into init audioPlayer with file:"+filePath);
@@ -127,15 +132,28 @@ p.getAudioFilesCount = function() {
 p.changeSrc = function(filePath) {
 	this.audioPlayer.src = filePath;
 }
-p.play = function(filePath) {
-	if (filePath) {
+p.play = function(fileName) {
+	if (fileName) {
 		this.audioPlayer.pause();
-		this.changeSrc(filePath);
+		this.changeSrc(this.getBasePath() + fileName);
 	}
 	this.audioPlayer.play();
-	console.log("play");
+	//console.log("play");
 	this._isPlay = true;
 };
+/*
+play pre music handler
+ */
+p.playPre = function() {
+
+}
+
+/*
+play next music handler
+ */
+p.playNext = function() {
+
+}
 p.isPlaying = function() {
 	return this._isPlay;
 };
@@ -164,6 +182,18 @@ p.playNextByRandom = function() {
 p.isInit = function() {
 	return this.isAudioFileInit;
 };
+
+p.setMusicList = function(list) {
+	this._musicList = list;
+}
+
+p.getBasePath = function() {
+	return this._basePath;
+}
+
+p.setBasePath = function(path) {
+	this._basePath = path;
+}
 
 p.isLoop = function() {
 	return this._isLoop;
@@ -271,10 +301,13 @@ p.getCurrentTime = function() {
 	return this.getTimeFromSeconds(currentTime);
 }
 
-p.getPercentOfCurentTime = function(){
-	return this.audioPlayer.currentTime/this.audioPlayer.duration;
+p.getPercentOfCurentTime = function() {
+	return this.audioPlayer.currentTime / this.audioPlayer.duration;
 }
 
+/*
+add event listner function
+ */
 p.addEvent = function(event, callback) {
 	this.audioPlayer.addEventListener(event, callback);
 }

@@ -177,11 +177,18 @@ html,body{
 }
 
 /*............music content*/
+.music-nav{
+	color:#222;
+	background-color: #eeeeee;
+	border-bottom:1px solid #dad8d8;
+}
+.music-item:nth-child(even){
+	background-color: #f3faff;
+}
 .music-item{
 	position: relative;
 	width: 100%;
 	height: 30px;
-	padding-left: 10px;
 	line-height: 30px;
 	background-color:#fff;
 	border-bottom:1px solid #e0e0e0;
@@ -190,14 +197,32 @@ html,body{
 .music-item:hover{
 	background-color:#f1f1f1;
 }
-#duration{
+
+.current-music-item{
+	background-color:#f1f1f1 !important;
+	border-bottom:1px solid #fcc !important;
+}
+
+#music-name{
+	width: 30%;
+	text-align: left;
+	padding-left: 10px;
 	display: inline-block;
-	float:right;
+	
+}
+#music-author{
+	width: 30%;
+	text-align: center;
+	display: inline-block;
 }
 #played{
 	display: inline-block;
 	float:right;
 }
+
+
+
+
 /* -------------- footer*/
 .footer{
 	position: absolute;
@@ -232,12 +257,19 @@ html,body{
 	background: url(../images/player_9996b.png) no-repeat -30px 0;
 	text-indent: -9999px;
 }
+.music-pre:hover{
+	opacity: 0.5;
+	cursor: pointer;
+}
 .music-play{
 	margin: 0 22px;
 	width: 41px;
 	height: 41px;
     background: url(../images/player_9996b.png) no-repeat -30px -150px;
     text-indent: -9999px;
+}
+.music-play:hover{
+	cursor: pointer;
 }
 .play {
 	background-position: -30px -150px;
@@ -251,6 +283,10 @@ html,body{
 	height: 29px;
 	background: url(../images/player_9996b.png) no-repeat -30px -150px;
 	background-position: -30px -50px;
+}
+.music-next:hover{
+	opacity: 0.5;
+	cursor: pointer;
 }
 #music-colume-control{
 	position: absolute;

@@ -22,7 +22,7 @@ $(function() {
 
     $("#max").click(function() {
       console.log($(window).width() + ":" + screen.width);
-      if ($(window).width() == screen.width) {
+      if ($(window).width() >= screen.width-5) {
         win.unmaximize();
       } else {
         win.maximize();
@@ -59,9 +59,15 @@ $(function() {
   }
   ////////////////////////////////////////////////////////////your code
 
-  var audioPlayer = new MyAudio();
+  var audioPlayer = new MyAudio("http://xiebaochun.github.io/music-resource/");
 
   var playback = new Playback(audioPlayer);
+
+  //add time upate event handler
+  audioPlayer.addEvent("timeupdate", function() {
+    playback.updateTimeData();
+    playback.updateCurPosition();
+  });
 
   setTimeout(function() {
     $("#loader").fadeOut();
@@ -110,6 +116,7 @@ $(function() {
         var music_list = results.music.musics;
         list_musics(music_list);
 
+        audioPlayer.setMusicList(music_list);
       });
 
   }
@@ -119,31 +126,35 @@ $(function() {
    */
   function list_musics(list) {
 
-    $("#music-content").empty();
+    $(".music-items").empty();
+
+    //var html = '<div class="music-nav"><div id="music-name">歌曲</div><div id="music-author">歌手</div></div>'
+
+    //var element = $(html);
+
+    //$("#music-content").append(element);        
 
     $.each(list, function(index, item) {
 
-      var html = '<div class="music-item">' + item.name + '<div id="played"></div><div id="duration"></div></div>'
+
+      var html = '<div class="music-item"><div id="music-name">'+item.name+'</div><div id="music-author">'+item.author+'</div></div>'
 
       var element = $(html);
 
       element.click(function() {
 
         //console.log("click");
+        $(".current-music-item").removeClass("current-music-item");
+
+        $(this).addClass("current-music-item");
 
         $("#playing-song-info").html(item.name);
 
-        audioPlayer.play("http://xiebaochun.github.io/music-resource/" + item.file_name);
-
-        //add time upate event handler
-        audioPlayer.addEvent("timeupdate", function() {
-          playback.updateTimeData();
-          playback.updateCurPosition();
-        });
+        audioPlayer.play(item.file_name);
 
       });
 
-      $("#music-content").append(element);
+      $(".music-items").append(element);
 
     });
   }
