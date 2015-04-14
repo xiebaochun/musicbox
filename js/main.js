@@ -22,7 +22,7 @@ $(function() {
 
     $("#max").click(function() {
       console.log($(window).width() + ":" + screen.width);
-      if ($(window).width() >= screen.width-5) {
+      if ($(window).width() >= screen.width - 5) {
         win.unmaximize();
       } else {
         win.maximize();
@@ -59,14 +59,26 @@ $(function() {
   }
   ////////////////////////////////////////////////////////////your code
 
-  var audioPlayer = new MyAudio("http://xiebaochun.github.io/music-resource/");
+  //var audioPlayer = new MyAudio("http://xiebaochun.github.io/music-resource/");
+  var audioPlayer = new MyAudio("music/");
 
-  var playback = new Playback(audioPlayer);
+  var lyric = new Lyric();
+
+  var playback = new Playback(audioPlayer, lyric);
+
+  var lyric = new Lyric();
+
+  var cur_time = '';
 
   //add time upate event handler
   audioPlayer.addEvent("timeupdate", function() {
     playback.updateTimeData();
     playback.updateCurPosition();
+    if (cur_time != $('#cur').html()) {
+      cur_time = $('#cur').html()
+      lyric.setItemColorByTime($('#cur').html());
+    }
+
   });
 
   setTimeout(function() {
@@ -100,6 +112,10 @@ $(function() {
    */
   win.on("resize", function(w, h) {
     playback.updateCurPosition();
+    $(".music-lyric").css("left", 188 + $('.music-content').width() + "px");
+    $(".music-lyric").css("width", w - (188 + $('.music-content').width()) + "px");
+    $(".lrc-list>li").css("font-size", "1.5vw");
+    $(".lyric-cur").css("font-size", "2.2vw");
   });
 
   /*
@@ -112,7 +128,7 @@ $(function() {
         },
       },
       function(err, results) {
-        console.log(results);
+        //console.log(results);
         var music_list = results.music.musics;
         list_musics(music_list);
 
@@ -137,7 +153,7 @@ $(function() {
     $.each(list, function(index, item) {
 
 
-      var html = '<div class="music-item"><div id="music-name">'+item.name+'</div><div id="music-author">'+item.author+'</div></div>'
+      var html = '<div class="music-item"><div id="music-name">' + item.name + '</div><div id="music-author">' + item.author + '</div></div>'
 
       var element = $(html);
 
@@ -151,6 +167,8 @@ $(function() {
         $("#playing-song-info").html(item.name);
 
         audioPlayer.play(item.file_name);
+
+        lyric.init(item.name);
 
       });
 

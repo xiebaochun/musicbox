@@ -220,7 +220,33 @@ html,body{
 	float:right;
 }
 
+/* --------------lyric*/
+.music-lyric{
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+	left: 400px;
+	width: 30%;
+	height: 100%;
+	background: #fff;
+	overflow: hidden;
+	text-align: center;
+}
+.lrc-list{
+	position: relative;
+	top:200px;
+	
+}
+.lrc-list>li{
+	font-size: 1.5vw;
+}
 
+.lyric-cur{
+	/*font-size: 14px;*/
+	font-weight: bolder;
+	color: #179EBB;
+	font-size: 2.2vw;
+}
 
 
 /* -------------- footer*/

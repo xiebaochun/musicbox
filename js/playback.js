@@ -1,6 +1,6 @@
 ;
 
-function Playback(audioPlayer) {
+function Playback(audioPlayer,lyric) {
 
 	this.audioPlayer = audioPlayer;
 
@@ -24,6 +24,11 @@ function Playback(audioPlayer) {
 			audioPlayer.pause();	
 		}else{
 			audioPlayer.play();
+			if(audioPlayer.getCurrentTime()=="00:00"){
+				//console.log(audioPlayer.getCurrentTime());
+				lyric.init($("#playing-song-info").html());		
+			}
+		
 		}
 		//console.log("play click"+audioPlayer.isPlaying());
 	});
@@ -31,12 +36,12 @@ function Playback(audioPlayer) {
 	//Add play pre music button event listner handler
 	$("#music-pre").click(function(){
 		$(".current-music-item").prev().trigger("click");
-		$( this ).animate({
-		    opacity: 0.25,
-		    top: "+=50px"   
-		  }, 1000, function() {
-		    // Animation complete.
-		  });
+		// $( this ).animate({
+		//     opacity: 0.25,
+		//     top: "+=50px"   
+		//   }, 1000, function() {
+		//     // Animation complete.
+		//   });
 	});
 
 	//Add play next music button click event listener handler
