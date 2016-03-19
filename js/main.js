@@ -25,7 +25,7 @@ $(function() {
 
   setTimeout(function() {
     $("#loader").fadeOut();
-  }, 100);
+  }, 0);
 
   loadMusics();
 
@@ -59,15 +59,19 @@ $(function() {
   //   $(".lrc-list>li").css("font-size", "1.5vw");
   //   $(".lyric-cur").css("font-size", "2.2vw");
   // });
+  adjustLayout();
   $(window).resize(function() {
-    //$('span').text(x+=1);
+    adjustLayout();
+  });
+
+  function adjustLayout(){
     var w = $(window).width();
-    playback.updateCurPosition();
     $(".music-lyric").css("left", 188 + $('.music-content').width() + "px");
     $(".music-lyric").css("width", w - (188 + $('.music-content').width()) + "px");
     $(".lrc-list>li").css("font-size", "1.5vw");
     $(".lyric-cur").css("font-size", "2.2vw");
-  });
+    playback.updateCurPosition();
+  }
   /*
   load music 
    */
@@ -170,6 +174,19 @@ $(function() {
     	dataType:'json'
     });
   }
-
-
 });
+
+ var volume = React.createClass({
+    render:function(){
+      return(
+        <div>
+          <div className="toggle-mute toMute" id="toggle-mute-btn">{{hello}}</div>
+        </div>
+      );
+    }
+  });
+  
+  ReactDOM.render(
+    <volume />,
+    document.getElementById('music-colume-control')
+  );
