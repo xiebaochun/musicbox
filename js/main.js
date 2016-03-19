@@ -123,6 +123,7 @@ $(function() {
         audioPlayer.play(item.file_name);
 
         lyric.init(item.name);
+        adjustLayout();
 
       });
 
