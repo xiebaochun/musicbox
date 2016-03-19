@@ -68,8 +68,8 @@ $(function() {
     var w = $(window).width();
     $(".music-lyric").css("left", 188 + $('.music-content').width() + "px");
     $(".music-lyric").css("width", w - (188 + $('.music-content').width()) + "px");
-    $(".lrc-list>li").css("font-size", "1.5vw");
-    $(".lyric-cur").css("font-size", "2.2vw");
+    $(".lrc-list>li").css("font-size", "1vw");
+    $(".lyric-cur").css("font-size", "1.5vw");
     playback.updateCurPosition();
   }
   /*
