@@ -122,8 +122,9 @@ $(function() {
 
         audioPlayer.play(item.file_name);
 
-        lyric.init(item.name);
-        adjustLayout();
+        lyric.init(item.name, function(){
+          adjustLayout();
+        });
 
       });
 
