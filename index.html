@@ -1,9 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>music box</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
-	hello word!
+	<div class="wrap">
+	  <div class="window_bar">
+	    <div class="window_bar_left"></div>
+	    <div class="window_bar_right">
+	      <div class="button" id="min">—</div>
+	      <div class="button" id="max">口</div>
+	      <div class="button" id="close">X</div>
+	    </div> 
+	  </div>
+	  <div id="loader">
+	    <!-- <div class="progress" id="progress_content"></div> -->
+	    <!-- <div class="progress" id="progress_box">
+	      
+	    </div> -->
+	    <div class="box">
+	      <div class="loader5"></div>
+	    </div>
+	  </div>
+	  <div class="main_view">
+	    <div class="vertical-middle nav_left" id="nav_left">
+	       <div class="app_name color-white text-align-center">音乐盒</div>
+	       <div class="recommend">
+	         <p class="text-align-left" style="font-size:14px; padding-left:20px;line-height:40px">推荐</p>
+	         <ul class="recommend-list">
+	           <li class="recommend-music-class text-align-left">YY经典</li>
+	           <li class="recommend-music-class text-align-left">伤感</li>
+	           <li class="recommend-music-class text-align-left">校园</li>
+	           <li class="recommend-music-class text-align-left">日本民谣</li>
+	           <li class="recommend-music-class text-align-left">流行音乐</li>
+	         </ul>
+	       </div>
+	       <div class="other-music-box">
+	         <p class="text-align-left" style="font-size:14px; padding-left:20px;line-height:40px">其他盒子</p>
+	         <ul class="recommend-list">
+	           <li class="recommend-music-class text-align-left" id="baidu-music-box">百度音乐盒</li>
+	           <li class="recommend-music-class text-align-left">虾米音乐盒</li>
+	         </ul>
+	       </div>
+	    </div>
+	    <div class="vertical-middle music-content" id="music-content">
+	      <div class="music-nav"><div id="music-name">歌曲</div><div id="music-author">歌手</div></div>
+	      <div class="music-items">
+	        
+	      </div>
+	    </div>
+	    <div class="vertical-middle music-lyric" id="music-lyric"> 
+	    </div>
+	  </div>
+	  <div class="footer">
+	    <div class="inner">
+	      <div class="music-control-bar">
+	        <ul>
+	          <li class="music-pre" id="music-pre"></li>
+	          <li class="music-play play" id="play"></li>
+	          <li class="music-next" id="music-next"></li>
+	        </ul>
+	      </div>
+	      <div id="music-colume-control">
+	        <div class="toggle-mute toMute" id="toggle-mute-btn"></div>
+	      </div>
+	      <div class="play-mode">
+	        <div class="play-mode-btn" id="play-mode-btn"></div>
+	      </div>
+	      <div class="playing-bar">
+	        <div id="playing-song-info"></div>
+	        <div id="time-progress-bar">
+	          <div id="downloadingProgressBar" style="width: 100%;"></div>
+	          <div class="cur" id="cur-bar"></div>
+	          <a class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" id="slider-handle" href="#" ></a>
+	        </div>
+	        <div id="timeData">
+	          <span class="cur" id="cur">00:00</span><span id="slash" style="">/</span><span class="total" id="total">00:00</span>
+	        </div>
+	      </div>
+	      <div id="extraBar">
+	        <a href="#" id="btnToggleLike" class="status_Tolike">Like</a>
+	        <a href="#" id="btnToggleFav" class="status_Tofav" onclick="ga('send','event','播放栏','按钮','喜欢');">Fav</a>
+	        <a href="#" id="btnShare" class="globalShare">Share</a>
+	      </div>  
+	    </div>
+	  </div>
+	</div>
+	<script type="text/javascript" src="./css/common.js"></script>
 </body>
 </html>
