@@ -59,8 +59,8 @@ $(function() {
   }
   ////////////////////////////////////////////////////////////your code
 
-  //var audioPlayer = new MyAudio("http://xiebaochun.github.io/music-resource/");
-  var audioPlayer = new MyAudio("music/");
+  var audioPlayer = new MyAudio("http://xiebaochun.github.io/music-resource/");
+  //var audioPlayer = new MyAudio("music/");
 
   var lyric = new Lyric();
 
