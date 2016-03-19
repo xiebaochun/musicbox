@@ -425,3 +425,22 @@ html,body{
 	text-indent: -9999px;
 	overflow: hidden;
 }
+
+.KTV-wrap{
+	position: absolute;
+	top: -50px;
+	left: 0;
+	width: 100%;
+	min-height: 50px;
+	_background-color:#900;
+	text-align: center;
+	z-index: 101;
+}
+.KTV-wrap .current-phase{
+	line-height: 50px;
+	font-family: '宋体';
+	font-size: 30px;
+	font-size: 2vw;
+	color:#5e5;
+	text-shadow: 1px 1px 3px #8e8;
+}
