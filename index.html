@@ -105,6 +105,24 @@
 	<script type="text/javascript" src="./lib/react/react.min.js"></script>
 	<script type="text/javascript" src="./lib/react/react-dom.min.js"></script>
 	<script src="./lib/react/browser.min.js"></script>
-	<script type="text/babel" src="./js/main.js"></script>
+	<script type="text/babel">
+		var volume = React.createClass({
+		   render:function(){
+		     return(
+		       <div>
+		         <div className="toggle-mute toMute" id="toggle-mute-btn"></div>
+		       </div>
+		     );
+		   }
+		 });
+		 
+		 ReactDOM.render(
+		   <div>
+		         <div className="toggle-mute toMute" id="toggle-mute-btn"></div>
+		       </div>,
+		   document.getElementById('music-colume-control')
+		 );
+	</script>
+	<script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>

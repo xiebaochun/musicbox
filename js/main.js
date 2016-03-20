@@ -173,18 +173,3 @@ $(function() {
     });
   }
 });
-
- var volume = React.createClass({
-    render:function(){
-      return(
-        <div>
-          <div className="toggle-mute toMute" id="toggle-mute-btn">{{hello}}</div>
-        </div>
-      );
-    }
-  });
-  
-  ReactDOM.render(
-    <volume />,
-    document.getElementById('music-colume-control')
-  );
