@@ -8,7 +8,7 @@ $(function() {
 
   var playback = new Playback(audioPlayer, lyric);
 
-  var lyric = new Lyric();
+  //var lyric = new Lyric();
 
   var cur_time = '';
 
@@ -20,7 +20,6 @@ $(function() {
       cur_time = $('#cur').html()
       lyric.setItemColorByTime($('#cur').html());
     }
-
   });
 
   setTimeout(function() {
